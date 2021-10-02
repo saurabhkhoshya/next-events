@@ -1,11 +1,12 @@
-import Document, { Html, Head, Main, NextScript } from "next/document";
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 
-class MyDocuments extends Document {
+class MyDocument extends Document {
   render() {
     return (
-      <Html>
+      <Html lang='en'>
         <Head />
         <body>
+          <div id='overlays' />
           <Main />
           <NextScript />
         </body>
@@ -13,4 +14,5 @@ class MyDocuments extends Document {
     );
   }
 }
-export default MyDocuments;
+
+export default MyDocument;
