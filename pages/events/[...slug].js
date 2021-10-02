@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { getFeaturedEvents } from "../../helpers/api-util";
 import EventList from "../../components/events/event-list";
@@ -16,6 +17,12 @@ function FilteredEventPage(props) {
   // const numYear = +filteredYear;
   // const numMonth = +filteredMonth;
 
+  const pageHeadData = (
+    <Head>
+      <title>Filtered Events</title>
+      <meta name="description" content={`All events `}></meta>
+    </Head>
+  );
   if (props.hasError) {
     return (
       <Fragment>
@@ -32,6 +39,13 @@ function FilteredEventPage(props) {
   if (!filteredEvents || filteredEvents.length === 0) {
     return (
       <Fragment>
+        <Head>
+          <title>Filtered Events</title>
+          <meta
+            name="description"
+            content={`All events for ${numMonth}/${numYear}`}
+          ></meta>
+        </Head>
         <p>No events found for the chosen filter!</p>
         <div className="center">
           <Button link="/events">Show All Events</Button>
